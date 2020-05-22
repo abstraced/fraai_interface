@@ -1,0 +1,58 @@
+
+
+.title {
+   
+   
+    font-family: 'Josefin Slab', serif;
+}
+
+.order-view {
+text-align: center;
+padding: 2%;
+width: 97%;
+font-family: 'Josefin Sans', sans-serif;
+display:grid;
+grid-gap: 2%;
+
+
+
+grid-template-areas:
+  "general-info accountant-info"
+  "furniture-info furniture-info"
+  
+
+}
+
+
+.general-info {
+
+    grid-area: general-info;
+    border: 3px solid black;
+  border-radius: 20px;
+  background-color: white;
+
+
+
+
+
+
+
+}
+
+.furniture-info {
+    grid-area: furniture-info;
+    border: 3px solid black;
+  border-radius: 20px;
+  background-color: white;
+
+
+}
+.accountant-info {
+    grid-area: accountant-info;
+    border: 3px solid black;
+  border-radius: 20px;
+  background-color: white;
+
+
+
+}

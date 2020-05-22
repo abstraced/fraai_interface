@@ -1,0 +1,58 @@
+.order_single  {
+
+    padding:5px;
+    font-family: 'Josefin Sans', sans-serif;
+
+    display:grid;
+
+    border: 2px solid black;  
+    margin: 20px 10px;
+
+    text-align:center;
+
+    grid-gap: 2%;
+
+
+    grid-template-rows: 50px 400px 1000px ;
+   
+
+
+
+
+    grid-template-areas:
+  "customer general "
+  "articles articles "
+  
+
+  }
+
+
+
+
+
+
+
+.customer_view   {
+   
+    grid-area: customer;
+    
+}
+   
+
+
+
+
+.general_view  {
+
+    grid-area: general;
+   
+
+
+}
+
+.articles_view {
+
+    grid-area: articles;
+   
+
+}

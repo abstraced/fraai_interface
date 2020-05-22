@@ -1,0 +1,73 @@
+$color: steelblue;
+
+$black: black;
+$mauve: #e3e3e3;
+$yellow: #f5f1d6;
+$darkermauve:#d8dde6;
+$blue: #cbdfe6;
+$lightgreen:#d7e1d9;
+$color: #cad7cc;
+
+
+.title {
+    
+    font-family: 'Josefin Slab', serif;
+
+}
+
+.order-card{
+    padding:5px;
+    font-family: 'Josefin Sans', sans-serif;
+   
+    
+    margin:50%;
+    text-align:center;
+    border-radius: 25px;
+    border: 3px solid black;  
+    margin: 20px 10px;
+    width:90%;
+    background-color:white ; 
+
+    display:grid;
+grid-gap: 2%;
+
+
+
+grid-template-areas:
+  "name . invoice_number"
+  "address . amount "
+  " furnitures furnitures furnitures"
+
+  }
+
+  .name {
+    grid-area: name;
+//     border: 3px solid black;
+//   border-radius: 20px;
+//   background-color: white;
+}
+.address {
+    grid-area: address;
+    width:80%;
+//     border: 3px solid black;
+//   border-radius: 20px;
+//   background-color: white;
+}
+.amount {
+    grid-area: amount;
+//     border: 3px solid black;
+//   border-radius: 20px;
+//   background-color: white;
+}
+.invoice_number {
+    grid-area: invoice_number;
+//     border: 3px solid black;
+//   border-radius: 20px;
+//   background-color: white;
+}
+.furnitures {
+    grid-area: furnitures;
+//     border: 3px solid black;
+//   border-radius: 20px;
+//   background-color: white;
+}
