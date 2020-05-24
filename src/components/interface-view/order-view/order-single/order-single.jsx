@@ -17,14 +17,20 @@ var _ = require('lodash');
 
 
 import { NavLink } from 'react-router-dom';
-
 import { connect } from 'react-redux';
+
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 
 
 
 import CustomerView from '../../customer-view/customer-view';
 import { OrderGeneralInfos } from './order-general-infos/order-general-infos';
+
+import { LoadingView } from '../../../loading-view/loading-view';
 import { OrderArticles } from './order-articles/order-articles';
 
 
@@ -37,7 +43,7 @@ import { setSelectedOrder } from '../../../../actions/actions';
 const mapStateToProps = state => {
 
   return {
-
+    customers: state.customers,
     orders: state.orders,
     selectedCustomer: state.selectedCustomer,
     selectedOrder: state.selectedOrder,
@@ -237,6 +243,11 @@ function OrderSingle(props) {
 
   }
 
+
+  var customerActive= props.customers.find( x=> x.ID===props.selectedOrder[0].data_CustomerNumber);
+
+
+
 // WAIT FOR THE LOADING OF THE PROPS
   if (props.selectedOrder.length > 0) {
 
@@ -244,17 +255,27 @@ function OrderSingle(props) {
 
     return (
       <div className="order_single"  >
-        <NavLink to={`/orders`} > <button onClick={() => props.changeView('list', [], {})}>   Back to list </button></NavLink>
-        <button onClick={saveupdatedOrder}> Save changes</button>
-        <button onClick={addarticle} > Add an article</button>
-        { props.create ?  <CustomerView className="customer_view" view="create" />:
-        <CustomerView className="customer_view" view="selected" />
+       <Row>
+         <Col></Col>
+         <Col>
+        <NavLink to={`/orders`} > <Button >   Back to list </Button></NavLink>
+        <Button variant="danger" onClick={saveupdatedOrder}> Save changes</Button>
+        <Button onClick={addarticle} > Add an article</Button>
+        </Col>
+        </Row>
+        <Row >
+        <Col>
+        { props.create ?   <CustomerView className="customer_view" view="create" />:
+        <CustomerView className="customer_view" view="selected" customer={customerActive} />
         }
-
-        <OrderGeneralInfos className="general_view" generalInfos={props.selectedOrder[0]} />
-
+         </Col>
+         <Col>
+        <OrderGeneralInfos className="general_view" generalInfos={props.selectedOrder[0]} />         
+        </Col>
+        </Row>
+        <Row >
         <OrderArticles className="articles_view" template={props.template} order={props.selectedOrder} />
-
+        </Row>
 
 
       </div>
@@ -266,7 +287,7 @@ function OrderSingle(props) {
   else {
     return (
 
-      <div> Loading</div>
+      <LoadingView />
     )
 
   }

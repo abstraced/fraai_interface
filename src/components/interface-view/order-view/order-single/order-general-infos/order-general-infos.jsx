@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 
 
 
+import Card from 'react-bootstrap/Card';
+
+
 
 import UpdateGeneralInfos from './update-general-infos/update-general-infos';
 import { Link } from "react-router-dom";
@@ -41,15 +44,15 @@ export function OrderGeneralInfos (props) {
 return (
 
 
-<div className="general_infos"> General infos
+<Card className="general_infos">
 
 
-
+<Card.Title> General informations </Card.Title>
 
 {updateGeneralInfos == true ?
 <UpdateGeneralInfos generalInfos={props.generalInfos} />
 :
-<div className="general-infos"> General informations
+<div className="general-infos"> 
     {Object.keys (props.generalInfos)
     .filter(function(item) {
         for (var key in filter) {
@@ -82,7 +85,7 @@ return (
     <button onClick={()=>setUpdateGeneralInfos(false) }> Validate general informations   </button>    : 
     <button onClick={()=>setUpdateGeneralInfos(true) }> Update general informations   </button> 
 } 
-</div>
+</Card>
 
 )
 

@@ -18,6 +18,7 @@ import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image'
 
 
 
@@ -52,38 +53,36 @@ import Button from 'react-bootstrap/Button';
 
     <div className='navigation'>
 
-<Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+
+<Navbar >
+    <Navbar.Brand href="/"><Image bg="light" background="white"  src='https://cdn.webshopapp.com/shops/215747/themes/141665/assets/logo.svg?20200327142814'  fluid />
+    </Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    <Nav.Link  href="/orders">Orders </Nav.Link>
+    <Nav.Link  href="/customers">Customers </Nav.Link>
+      
     </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-info">Search</Button>
-    </Form>
+    
+<Button onClick={() => this.props.setUserInfos({ name: 'tobi'})}> Disconnect </Button>
+    {/* <GoogleLogout
+      clientId="703753342682-pofbuml594pvb54ajushgu4ln52i7l31.apps.googleusercontent.com"
+      buttonText="Logout"
+      onLogoutSuccess={() => this.props.setUserInfos({ name: 'tobi'})}
+    >
+    </GoogleLogout> */}
+    
   </Navbar>
-  <br />
-  <Navbar bg="primary" variant="dark">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-light">Search</Button>
-    </Form>
+{/* 
+  <Navbar expand="lg" variant="light" bg="light">
+    <Navbar.Brand href="#">Navbar</Navbar.Brand>
   </Navbar>
 
    
-     {/* <Nav justify variant="tabs" defaultActiveKey="/">
-  <Nav.Item>
-    <NavLink to="/"> <img 
-    src='https://cdn.webshopapp.com/shops/215747/themes/141665/assets/logo.svg?20200327142814' 
-   /></NavLink>
+     <Nav justify  defaultActiveKey="/">
+  <Nav.Item style={{padding: '5px'}}>
+    <NavLink to="/"> <Image style={{padding: '5px'}} src='https://cdn.webshopapp.com/shops/215747/themes/141665/assets/logo.svg?20200327142814'  fluid />
+    
+   </NavLink>
   </Nav.Item>
   <Nav.Item>
   <NavLink  to="/orders">Orders </NavLink>
@@ -91,15 +90,21 @@ import Button from 'react-bootstrap/Button';
 <Nav.Item>
   <NavLink  to="/customers">Customers </NavLink>
 </Nav.Item>
-
-</Nav>
-    <button onClick={() => this.props.setUserInfos({ name: 'tobi'})}> Disconnect </button>
-    <GoogleLogout
+<Nav.Item>
+<Button onClick={() => this.props.setUserInfos({ name: 'tobi'})}> Disconnect </Button>
+</Nav.Item>
+<Nav.Item>
+<GoogleLogout
       clientId="703753342682-pofbuml594pvb54ajushgu4ln52i7l31.apps.googleusercontent.com"
       buttonText="Logout"
       onLogoutSuccess={() => this.props.setUserInfos({ name: 'tobi'})}
     >
-    </GoogleLogout> */}
+    </GoogleLogout>
+</Nav.Item>
+
+</Nav> */}
+    
+    
     </div>
   )
 

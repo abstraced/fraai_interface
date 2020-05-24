@@ -58,7 +58,9 @@ useEffect(() => {
 
   };
   if (props.customer ) {
-   props.setSelectedCustomer(props.customer )
+ 
+   
+   props.setSelectedCustomer(props.customer);
 
   };
   if (props.isStandalone ) {
@@ -82,7 +84,7 @@ function changeView(display,customer  ) {
   if (view === 'list') {
    return  (
    <div className="list"> 
-    <button onClick={()=> changeView('create',null)}>Add a customer</button>
+    <button onClick={()=> changeView('create')}>Add a customer</button>
    <input value={searchInput} 
    onChange={e => setSearchInput(e.target.value)} /> 
    

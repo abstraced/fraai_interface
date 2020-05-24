@@ -8,6 +8,8 @@ import {setSelectedOrder } from '../../../../actions/actions';
 
 
 
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 import { connect } from 'react-redux';
@@ -45,29 +47,36 @@ function  OrderCard (props) {
    
    if( customer){
     return (
+      <Card style={{ width: '30rem',height:'30rem',marginTop:"10px",padding:"10px",textAlign: "center" }}> 
     <div className="order-card"  onClick={()=>{ props.changeView('selected');setSelectedOrder(props.order)}}>
    
-    <div className="id"><span className="title">Id:</span> {customer.ID} </div>
+     <Card.Header className="title"> Invoice number:{props.order[0].data_InvoiceNumber}  </Card.Header>
+     <Card.Title>
+    <div className="invoice_number">Customer #: {customer.ID} </div>
     
     <div className="name"><span className="title">Name:</span> {customer.first_name} {customer.last_name} </div>
+    </Card.Title>
+    <Card.Subtitle>
     <div className="address"><span className="title">Billing address: </span>{customer.street_number} {customer.zipcode} {customer.city} {customer.country} </div>
     <div className="amount"><span className="title">Amount: </span>{props.order[0].data_Amount} </div>
-    <div className="invoice_number"><span className="title">Invoice number:</span> {props.order[0].data_InvoiceNumber} </div>
-     <ul className="furnitures"><span className="title"> Furnitures:</span>
+    </Card.Subtitle>
+    
+    <ListGroup> Furnitures:
      { props.order.map((order)=>{
-    return <li  >{order.data_TypeFurniture}</li>
+    return   <ListGroup.Item variant="info" as="li">{order.data_TypeFurniture}</ListGroup.Item>
 
      })
 
 
      }
-     </ul>
+    </ListGroup>
     {/* list */}
     
 
 
 
     </div>
+    </Card>
     )}
     else{
    

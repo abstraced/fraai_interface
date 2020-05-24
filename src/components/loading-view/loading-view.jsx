@@ -13,13 +13,14 @@ import React from 'react';
 
 
 
-export function OrderView (props) {
+export function LoadingView (props) {
 
 
 
 
 return (
 
+    <div>  Loading from the component</div>
     
 
 

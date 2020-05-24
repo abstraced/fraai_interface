@@ -19,6 +19,12 @@ import {setSelectedCustomer } from '../../../actions/actions';
 
 
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
+
+
 
 
 
@@ -101,9 +107,12 @@ function changeView(display ) {
 
   if (view === 'list') {
     return  (
-   <div>  
-     <h2>Orders List</h2>  
-     <button onClick={()=> changeView('create')}> Create an order</button>
+   <div>
+     <Row >
+     <Col> </Col>
+     <Col xs={8} style={{textAlign: "center", fontSize:"30px"}}>Orders List</Col>
+     <Col> <Button variant="secondary"onClick={()=> changeView('create')}> Create an order</Button></Col>
+     </Row>
      <OrderList isStandalone={props.isStandalone} changeView={changeView} orders={props.orders}/>
       </div>  )
      ;
@@ -128,7 +137,7 @@ function changeView(display ) {
 
  else if (view ==='selected')
   if (props.selectedOrder) {
-    return (<div> Order selected 
+    return (
    <OrderSingle
   
    changeView={changeView}
@@ -136,7 +145,7 @@ function changeView(display ) {
    user={props.user}  
    
    />
-    </div>);
+   );
   }
     
 //   else{

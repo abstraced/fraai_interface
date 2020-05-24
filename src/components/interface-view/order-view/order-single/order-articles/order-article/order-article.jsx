@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 
-
+import Card from 'react-bootstrap/Card';
 
 import UpdateOrderArticle from './update-order-article/update-order-article';
 
@@ -44,7 +44,7 @@ export function OrderArticle(props) {
 
 
   return (
-    <div className="article"> 
+    <Card className="article"> 
 
       {updateArticle == true ? <div> Article update view
         <UpdateOrderArticle article={props.article} />
@@ -84,7 +84,7 @@ export function OrderArticle(props) {
         <button onClick={() => setUpdateArticle(true)}> Update article   </button>
       }
 
-    </div>
+    </Card>
   )
 
 
