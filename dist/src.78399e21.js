@@ -58314,7 +58314,51 @@ Button.displayName = 'Button';
 Button.defaultProps = defaultProps;
 var _default = Button;
 exports.default = _default;
-},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./SafeAnchor":"../node_modules/react-bootstrap/esm/SafeAnchor.js"}],"components/interface-view/customer-view/customer-card/customer-card.jsx":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js","./SafeAnchor":"../node_modules/react-bootstrap/esm/SafeAnchor.js"}],"../node_modules/react-bootstrap/esm/Container.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var defaultProps = {
+  fluid: false
+};
+
+var Container = _react.default.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      fluid = _ref.fluid,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      className = _ref.className,
+      props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["bsPrefix", "fluid", "as", "className"]);
+  var prefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, 'container');
+  var suffix = typeof fluid === 'string' ? "-" + fluid : '-fluid';
+  return /*#__PURE__*/_react.default.createElement(Component, (0, _extends2.default)({
+    ref: ref
+  }, props, {
+    className: (0, _classnames.default)(className, fluid ? "" + prefix + suffix : prefix)
+  }));
+});
+
+Container.displayName = 'Container';
+Container.defaultProps = defaultProps;
+var _default = Container;
+exports.default = _default;
+},{"@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","./ThemeProvider":"../node_modules/react-bootstrap/esm/ThemeProvider.js"}],"components/interface-view/customer-view/customer-card/customer-card.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58446,6 +58490,7 @@ function CustomerUpdate(props) {
       newArray.splice(index, 1, newItem);
       props.setCustomers(newArray);
       props.setSelectedCustomer(newItem);
+      localStorage.setItem("Customers", JSON.stringify(newArray));
     }).then(props.setSelectedCustomer(updatedUser)).then(props.togglepUdate()).catch(function (error) {
       console.log(error);
     });
@@ -58516,6 +58561,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _customerUpdate = _interopRequireDefault(require("../customer-update/customer-update"));
 
+var _orderView = _interopRequireDefault(require("../../order-view/order-view"));
+
 var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -58543,7 +58590,7 @@ function CustomerSingle(props) {
       setUpdateUser = _useState2[1];
 
   var backToList = function backToList() {
-    props.changeView('list', null);
+    props.changeView('list');
   };
 
   function toggleUpdate() {
@@ -58567,13 +58614,13 @@ function CustomerSingle(props) {
     to: "/customers"
   }, _react.default.createElement("button", {
     onClick: backToList
-  }, " Go back to compon")) : _react.default.createElement("button", {
+  }, " Go back to list")) : _react.default.createElement("button", {
     onClick: backToList
-  }, " Go back to list"), _react.default.createElement("button", {
+  }, " Change customer"), _react.default.createElement("button", {
     onClick: toggleUpdate
   }, " Update customer")));
 }
-},{"react":"../node_modules/react/index.js","../customer-update/customer-update":"components/interface-view/customer-view/customer-update/customer-update.jsx","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/interface-view/modal/modal.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../customer-update/customer-update":"components/interface-view/customer-view/customer-update/customer-update.jsx","../../order-view/order-view":"components/interface-view/order-view/order-view.jsx","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/interface-view/modal/modal.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59258,6 +59305,10 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Card = _interopRequireDefault(require("react-bootstrap/Card"));
 
+var _Col = _interopRequireDefault(require("react-bootstrap/Col"));
+
+var _Container = _interopRequireDefault(require("react-bootstrap/Container"));
+
 var _updateOrderArticle = _interopRequireDefault(require("./update-order-article/update-order-article"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -59293,28 +59344,40 @@ function OrderArticle(props) {
   }
 
   var filter = (_filter = {
-    data_ItemId: 'Item Id: ',
-    data_TypeFurniture: ' Type of furniture: ',
+    data_TypeFurniture: ['Item Id: ', 'card-text '],
+    data_ItemId: ['Item Id: ', 'card-title h5'],
     data_OrderDescription: 'Description:    ',
     data_OrderSize: 'Size:   ',
     data_SpecialCode: ' Special code: ',
     data_OrderColor: 'Order color: '
   }, _defineProperty(_filter, "data_OrderSize", 'Order size : '), _defineProperty(_filter, "data_Amount", 'Price'), _defineProperty(_filter, "data_NoteLaura", ' Note Laura'), _filter);
+
+  function turnIntoComponent(keyName) {
+    console.log(keyName);
+    console.log(filter[keyName]);
+    var TagName = filter[keyName][1];
+    return _react.default.createElement("div", {
+      className: TagName || 'yo'
+    }, filter[keyName][0], " ", props.article[keyName]);
+  }
+
+  ;
   return _react.default.createElement(_Card.default, {
-    className: "article"
-  }, updateArticle == true ? _react.default.createElement("div", null, " Article update view", _react.default.createElement(_updateOrderArticle.default, {
+    style: {
+      minWidth: '25%',
+      textAlign: "center"
+    }
+  }, updateArticle === true ? _react.default.createElement(_updateOrderArticle.default, {
     article: props.article
-  })) : _react.default.createElement("div", {
-    className: "article"
-  }, " Article", Object.keys(props.article).filter(function (item) {
+  }) : Object.keys(props.article).filter(function (item) {
     for (var key in filter) {
       if (item === key) return true;
     }
 
     return false;
   }).map(function (keyName) {
-    return _react.default.createElement("div", null, filter[keyName], " ", props.article[keyName]);
-  })), updateArticle ? _react.default.createElement("button", {
+    return turnIntoComponent(keyName);
+  }), updateArticle ? _react.default.createElement("button", {
     onClick: function onClick() {
       return setUpdateArticle(false);
     }
@@ -59324,7 +59387,7 @@ function OrderArticle(props) {
     }
   }, " Update article   "));
 }
-},{"react":"../node_modules/react/index.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","./update-order-article/update-order-article":"components/interface-view/order-view/order-single/order-articles/order-article/update-order-article/update-order-article.jsx"}],"components/interface-view/order-view/order-single/order-articles/order-articles.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Container":"../node_modules/react-bootstrap/esm/Container.js","./update-order-article/update-order-article":"components/interface-view/order-view/order-single/order-articles/order-article/update-order-article/update-order-article.jsx"}],"components/interface-view/order-view/order-single/order-articles/order-articles.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59334,7 +59397,13 @@ exports.OrderArticles = OrderArticles;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _CardDeck = _interopRequireDefault(require("react-bootstrap/CardDeck"));
+
+var _Card = _interopRequireDefault(require("react-bootstrap/Card"));
+
 var _orderArticle = require("./order-article/order-article");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -59344,18 +59413,20 @@ var _ = require('lodash');
 
 function OrderArticles(props) {
   if (props.order) {
-    return _react.default.createElement("div", {
-      className: "articles"
-    }, " Articles", props.order ? props.order.map(function (item) {
+    return _react.default.createElement(_CardDeck.default, {
+      style: {
+        justifyContent: "center"
+      }
+    }, props.order ? props.order.map(function (item) {
       return _react.default.createElement(_orderArticle.OrderArticle, {
         article: item
       });
-    }) : _react.default.createElement("div", null, " loading "));
+    }) : _react.default.createElement("div", null, " loading "), "// ");
   } else {
-    return _react.default.createElement("div", null, " not so Good    ");
+    return _react.default.createElement("div", null, "  Props order missing  ");
   }
 }
-},{"react":"../node_modules/react/index.js","lodash":"../node_modules/lodash/lodash.js","./order-article/order-article":"components/interface-view/order-view/order-single/order-articles/order-article/order-article.jsx"}],"components/interface-view/order-view/order-single/order-single.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","lodash":"../node_modules/lodash/lodash.js","react-bootstrap/CardDeck":"../node_modules/react-bootstrap/esm/CardDeck.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","./order-article/order-article":"components/interface-view/order-view/order-single/order-articles/order-article/order-article.jsx"}],"components/interface-view/order-view/order-single/order-single.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59376,6 +59447,8 @@ var _Row = _interopRequireDefault(require("react-bootstrap/Row"));
 var _Col = _interopRequireDefault(require("react-bootstrap/Col"));
 
 var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
+
+var _Container = _interopRequireDefault(require("react-bootstrap/Container"));
 
 var _customerView = _interopRequireDefault(require("../../customer-view/customer-view"));
 
@@ -59450,7 +59523,7 @@ function OrderSingle(props) {
     });
     var theHighest = Math.max.apply(Math, arrayOfId);
     setItemID(theHighest + 1);
-  }, [props]); /// SAVE TO GOOGLE AND UPDATE THE STATE TO INCLUDE IT
+  }, []); /// SAVE TO GOOGLE AND UPDATE THE STATE TO INCLUDE IT
 
   var saveupdatedOrder = function saveupdatedOrder() {
     var _filter;
@@ -59469,7 +59542,8 @@ function OrderSingle(props) {
 
     for (var i = 0; i < props.selectedOrder.length; i++) {
       var row = parseInt(props.selectedOrder[i].data_ItemId) - 1128;
-      rows.push(row);
+      rows.push(row); /// TAKE EVERY LINE AND TURN THEM INTO AN ARRAY
+
       Object.keys(props.selectedOrder[i]).filter(function (item) {
         for (var key in filter) {
           if (item === key) return true;
@@ -59510,13 +59584,15 @@ function OrderSingle(props) {
       var newArray = props.orders;
       newArray[props.selectedOrder[0].data_InvoiceNumber] = props.selectedOrder;
       props.setOrders(newArray);
+      localStorage.setItem("Orders", JSON.stringify(newArray));
     }).catch(function (error) {
       console.log(error);
     });
   }; /// ADD AN EMPTY ARTICLE AND UPDATE THE SELECTED ORDER STATE
 
 
-  var addarticle = function addarticle() {
+  var addArticle = function addArticle(e) {
+    e.preventDefault();
     setItemID(itemID + 1);
 
     var createdArticle = _.mapValues(props.template, function () {
@@ -59536,37 +59612,32 @@ function OrderSingle(props) {
     // createdArticle.data_PaymentMethod = props.selectedOrder[0].data_PaymentMethod;     
 
     props.setSelectedOrder([].concat(_toConsumableArray(props.selectedOrder), [createdArticle]));
-  };
+  }; // var customerActive= props.customers.find( x=> x.ID===props.selectedOrder[0].data_CustomerNumber);
+  // WAIT FOR THE LOADING OF THE PROPS
 
-  var customerActive = props.customers.find(function (x) {
-    return x.ID === props.selectedOrder[0].data_CustomerNumber;
-  }); // WAIT FOR THE LOADING OF THE PROPS
 
   if (props.selectedOrder.length > 0) {
-    return _react.default.createElement("div", {
-      className: "order_single"
-    }, _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, null), _react.default.createElement(_Col.default, null, _react.default.createElement(_reactRouterDom.NavLink, {
+    return _react.default.createElement("div", null, _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, null), _react.default.createElement(_Col.default, null, _react.default.createElement(_reactRouterDom.NavLink, {
       to: "/orders"
     }, " ", _react.default.createElement(_Button.default, null, "   Back to list ")), _react.default.createElement(_Button.default, {
       variant: "danger",
       onClick: saveupdatedOrder
     }, " Save changes"), _react.default.createElement(_Button.default, {
-      onClick: addarticle
+      onClick: addArticle
     }, " Add an article"))), _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, null, props.create ? _react.default.createElement(_customerView.default, {
       className: "customer_view",
       view: "create"
     }) : _react.default.createElement(_customerView.default, {
       className: "customer_view",
-      view: "selected",
-      customer: customerActive
+      view: "selected"
     })), _react.default.createElement(_Col.default, null, _react.default.createElement(_orderGeneralInfos.OrderGeneralInfos, {
       className: "general_view",
       generalInfos: props.selectedOrder[0]
-    }))), _react.default.createElement(_Row.default, null, _react.default.createElement(_orderArticles.OrderArticles, {
+    }))), _react.default.createElement(_orderArticles.OrderArticles, {
       className: "articles_view",
       template: props.template,
       order: props.selectedOrder
-    })));
+    }));
   } else {
     return _react.default.createElement(_loadingView.LoadingView, null);
   }
@@ -59578,7 +59649,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(OrderSingle);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","lodash":"../node_modules/lodash/lodash.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","../../customer-view/customer-view":"components/interface-view/customer-view/customer-view.jsx","./order-general-infos/order-general-infos":"components/interface-view/order-view/order-single/order-general-infos/order-general-infos.jsx","../../../loading-view/loading-view":"components/loading-view/loading-view.jsx","./order-articles/order-articles":"components/interface-view/order-view/order-single/order-articles/order-articles.jsx","../../../../actions/actions":"actions/actions.js"}],"components/interface-view/order-view/order-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","lodash":"../node_modules/lodash/lodash.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Container":"../node_modules/react-bootstrap/esm/Container.js","../../customer-view/customer-view":"components/interface-view/customer-view/customer-view.jsx","./order-general-infos/order-general-infos":"components/interface-view/order-view/order-single/order-general-infos/order-general-infos.jsx","../../../loading-view/loading-view":"components/loading-view/loading-view.jsx","./order-articles/order-articles":"components/interface-view/order-view/order-single/order-articles/order-articles.jsx","../../../../actions/actions":"actions/actions.js"}],"components/interface-view/order-view/order-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59671,9 +59742,7 @@ function OrderView(props) {
   }, [props]);
 
   function changeView(display) {
-    setView(display); // props.setSelectedOrder(order);
-    // var customerActive= props.customers.find( x=> x.ID===order[0].data_CustomerNumber);
-    // props.setSelectedCustomer(customerActive);
+    setView(display);
   }
 
   if (view === 'list') {
@@ -59701,6 +59770,11 @@ function OrderView(props) {
       create: true
     }));
   } else if (view === 'selected') if (props.selectedOrder) {
+    var customerActive = props.customers.find(function (x) {
+      return x.ID === props.order[0].data_CustomerNumber;
+    });
+    console.log('Huh?');
+    props.setSelectedCustomer(customerActive);
     return _react.default.createElement(_orderSingle.default, {
       changeView: changeView,
       template: props.articles[0],
@@ -62138,10 +62212,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
@@ -62151,6 +62221,10 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 // import  {UpdateOrderView}  from './update-order-view/update-order-view';
 var Navigation = /*#__PURE__*/function (_React$Component) {
@@ -62245,6 +62319,8 @@ var _orderView = _interopRequireDefault(require("../order-view/order-view"));
 
 var _customerView = _interopRequireDefault(require("../customer-view/customer-view"));
 
+var _loadingView = _interopRequireDefault(require("../../loading-view/loading-view"));
+
 var _navigation = _interopRequireDefault(require("../../nav-bar/navigation"));
 
 var _reactRouterDom = require("react-router-dom");
@@ -62265,10 +62341,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
@@ -62278,6 +62350,10 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var utilities = require('../../utilities');
 
@@ -62397,9 +62473,7 @@ var HomeView = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
 
       var state = this.state;
-      if (!state) return _react.default.createElement("div", {
-        className: "main-view"
-      }, " Loading ");
+      if (!state) return _react.default.createElement(_loadingView.default, null);
       return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_navigation.default, null), _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
         path: "/",
@@ -62417,9 +62491,7 @@ var HomeView = /*#__PURE__*/function (_React$Component) {
         path: "/customer/:customerId",
         render: function render(_ref) {
           var match = _ref.match;
-          if (!_this4.props.customers) return _react.default.createElement("div", {
-            className: "main-view"
-          }, " loading  ");
+          if (!_this4.props.customers) return _react.default.createElement(_loadingView.default, null);
           return _react.default.createElement(_customerView.default, {
             isStandalone: true,
             view: "selected",
@@ -62449,9 +62521,7 @@ var HomeView = /*#__PURE__*/function (_React$Component) {
         path: "/order/:orderId",
         render: function render(_ref2) {
           var match = _ref2.match;
-          if (!_this4.props.orders) return _react.default.createElement("div", {
-            className: "main-view"
-          }, " loading  ");
+          if (!_this4.props.orders) return _react.default.createElement(_loadingView.default, null);
           return _react.default.createElement(_orderView.default, {
             isStandalone: true,
             view: "selected",
@@ -62512,7 +62582,7 @@ var groupBy = function groupBy(key) {
 //         {movies.find(m => m.genre._id === match.params.id).genre} />
 //       }
 //       } />
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../order-view/order-view":"components/interface-view/order-view/order-view.jsx","../customer-view/customer-view":"components/interface-view/customer-view/customer-view.jsx","../../nav-bar/navigation":"components/nav-bar/navigation.jsx","../../utilities":"components/utilities.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","../../../actions/actions":"actions/actions.js"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../order-view/order-view":"components/interface-view/order-view/order-view.jsx","../customer-view/customer-view":"components/interface-view/customer-view/customer-view.jsx","../../loading-view/loading-view":"components/loading-view/loading-view.jsx","../../nav-bar/navigation":"components/nav-bar/navigation.jsx","../../utilities":"components/utilities.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","../../../actions/actions":"actions/actions.js"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62528,8 +62598,6 @@ var _loginView = _interopRequireDefault(require("../login-view/login-view"));
 
 var _homeView = _interopRequireDefault(require("../interface-view/home-view/home-view"));
 
-var _actions = require("../../actions/actions");
-
 var _reactRedux = require("react-redux");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -62538,7 +62606,6 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-//Redux
 var mapStateToProps = function mapStateToProps(state) {
   return {
     user: state.userInfos
@@ -62561,7 +62628,7 @@ function MainView(props) {
 var _default = (0, _reactRedux.connect)(mapStateToProps)(MainView);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../login-view/login-view":"components/login-view/login-view.jsx","../interface-view/home-view/home-view":"components/interface-view/home-view/home-view.jsx","../../actions/actions":"actions/actions.js","react-redux":"../node_modules/react-redux/es/index.js"}],"index.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../login-view/login-view":"components/login-view/login-view.jsx","../interface-view/home-view/home-view":"components/interface-view/home-view/home-view.jsx","react-redux":"../node_modules/react-redux/es/index.js"}],"index.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -62594,10 +62661,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
@@ -62607,6 +62670,10 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var store = (0, _redux.createStore)(_reducers.default, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); // Main component (will eventually use all the others)
 
@@ -62676,7 +62743,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63231" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60775" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

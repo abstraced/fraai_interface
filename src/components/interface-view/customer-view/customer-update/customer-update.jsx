@@ -96,7 +96,8 @@ const mapStateToProps = state => {
 
             
             props.setCustomers(newArray);
-            props.setSelectedCustomer(newItem)
+            props.setSelectedCustomer(newItem);
+            localStorage.setItem("Customers", JSON.stringify(newArray));
            
             
            

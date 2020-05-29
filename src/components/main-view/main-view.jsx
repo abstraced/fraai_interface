@@ -7,8 +7,6 @@ import LoginView from '../login-view/login-view';
 import HomeView from '../interface-view/home-view/home-view';
 
 
-//Redux
-import  {setUserInfos}  from '../../actions/actions';
 
 import { connect } from 'react-redux';
 
@@ -44,8 +42,7 @@ const mapStateToProps = state => {
     :
     <HomeView user={props.user} disconnect={() => this.disconnect()} />
     }
-    
-    
+        
     
     </div>
 

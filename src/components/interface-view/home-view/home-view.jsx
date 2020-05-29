@@ -7,6 +7,9 @@ import axios from 'axios';
 import OrderView from '../order-view/order-view';
 import CustomerView from '../customer-view/customer-view';
 
+import LoadingView from '../../loading-view/loading-view';
+
+
 import Navigation from '../../nav-bar/navigation';
 
 
@@ -174,7 +177,7 @@ class HomeView extends React.Component {
 
 
 
-    if (!state) return <div className="main-view"> Loading </div>;
+    if (!state) return <LoadingView />;
 
 
 
@@ -195,7 +198,7 @@ class HomeView extends React.Component {
         <Route path="/customers" render={() => <CustomerView isStandalone={true} />} />
 
         <Route path="/customer/:customerId" render={({ match }) => {
-          if (!this.props.customers) return <div className="main-view"> loading  </div>;
+          if (!this.props.customers) return <LoadingView />;
           return <CustomerView 
           isStandalone={true} 
           view='selected' 
@@ -218,7 +221,7 @@ class HomeView extends React.Component {
 
 
         <Route path="/order/:orderId" render={({ match }) => {
-          if (!this.props.orders)    return <div className="main-view"> loading  </div>;
+          if (!this.props.orders)    return <LoadingView />;
           return <OrderView  
           isStandalone={true}
           view='selected' 

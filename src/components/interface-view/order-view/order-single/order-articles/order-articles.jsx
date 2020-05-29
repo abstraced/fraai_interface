@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 
 
 var _ = require('lodash');
+import CardDeck from 'react-bootstrap/CardDeck';
+import Card from 'react-bootstrap/Card';
 
 
 
@@ -25,9 +27,18 @@ export function OrderArticles (props) {
  if(props.order) {
      return (
 
-    <div className="articles"> Articles
-
-{ props.order ?   props.order.map((item)=> <OrderArticle article={item}/>)
+    <CardDeck style={{ 
+       
+        justifyContent:"center", 
+        
+       }}>
+{/* <div> */}
+{ props.order ?   props.order.map((item)=>{ 
+    return (
+    
+    <OrderArticle article={item}/>
+    
+    )})
 : <div> loading </div>
 
 
@@ -35,12 +46,13 @@ export function OrderArticles (props) {
 
 }  
         
+{/* </div>      */}
         
-        
-   </div>)}
+// </CardDeck>
+)}
 
     else {return (
-        <div> not so Good    </div>)}
+        <div>  Props order missing  </div>)}
 
 
 

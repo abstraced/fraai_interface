@@ -90,10 +90,7 @@ const mapStateToProps = state => {
   
 function changeView(display ) {
   setView(display);
-  // props.setSelectedOrder(order);
-  // var customerActive= props.customers.find( x=> x.ID===order[0].data_CustomerNumber);
-
-  // props.setSelectedCustomer(customerActive);
+  
   
   
 
@@ -137,6 +134,11 @@ function changeView(display ) {
 
  else if (view ==='selected')
   if (props.selectedOrder) {
+    var customerActive= props.customers.find( x=> x.ID===props.order[0].data_CustomerNumber);
+    console.log( 'Huh?');
+    props.setSelectedCustomer(customerActive);
+
+
     return (
    <OrderSingle
   

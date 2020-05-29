@@ -23,6 +23,7 @@ import { connect } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 
 
@@ -82,17 +83,18 @@ function OrderSingle(props) {
 
   setItemID(theHighest+1);
 
-  }, [props]);
+  }, []);
 
 
 
+
+  
 
 
 /// SAVE TO GOOGLE AND UPDATE THE STATE TO INCLUDE IT
 
 
   const saveupdatedOrder = () => {
-
 
     // LIST OF THE PARAMETER THAT ARE UPDATED
     var filter = {
@@ -134,7 +136,7 @@ function OrderSingle(props) {
 
 
 
-
+  /// TAKE EVERY LINE AND TURN THEM INTO AN ARRAY
       Object.keys(props.selectedOrder[i])
         .filter(function (item) {
           for (var key in filter) {
@@ -192,6 +194,7 @@ function OrderSingle(props) {
         newArray[props.selectedOrder[0].data_InvoiceNumber] = props.selectedOrder;
 
         props.setOrders(newArray);
+        localStorage.setItem("Orders", JSON.stringify(newArray));
 
 
       })
@@ -204,8 +207,8 @@ function OrderSingle(props) {
 
 /// ADD AN EMPTY ARTICLE AND UPDATE THE SELECTED ORDER STATE
 
-  const addarticle = () => {
-
+  const addArticle = (e) => {
+    e.preventDefault();
     setItemID(itemID+1);
     
 
@@ -232,8 +235,6 @@ function OrderSingle(props) {
     //  createdArticle.data_ItemId = nouvelle valeurs
    
     // createdArticle.data_PaymentMethod = props.selectedOrder[0].data_PaymentMethod;     
-
-
     
 
     props.setSelectedOrder([...props.selectedOrder,createdArticle]);
@@ -244,7 +245,7 @@ function OrderSingle(props) {
   }
 
 
-  var customerActive= props.customers.find( x=> x.ID===props.selectedOrder[0].data_CustomerNumber);
+  // var customerActive= props.customers.find( x=> x.ID===props.selectedOrder[0].data_CustomerNumber);
 
 
 
@@ -254,32 +255,29 @@ function OrderSingle(props) {
 
 
     return (
-      <div className="order_single"  >
+     <div>
        <Row>
          <Col></Col>
          <Col>
         <NavLink to={`/orders`} > <Button >   Back to list </Button></NavLink>
         <Button variant="danger" onClick={saveupdatedOrder}> Save changes</Button>
-        <Button onClick={addarticle} > Add an article</Button>
+        <Button onClick={addArticle} > Add an article</Button>
         </Col>
         </Row>
         <Row >
         <Col>
         { props.create ?   <CustomerView className="customer_view" view="create" />:
-        <CustomerView className="customer_view" view="selected" customer={customerActive} />
+        <CustomerView className="customer_view" view="selected"  />
         }
          </Col>
-         <Col>
+        <Col>
+       
         <OrderGeneralInfos className="general_view" generalInfos={props.selectedOrder[0]} />         
         </Col>
         </Row>
-        <Row >
+        
         <OrderArticles className="articles_view" template={props.template} order={props.selectedOrder} />
-        </Row>
-
-
-      </div>
-
+        </div>
     )
   }
 
