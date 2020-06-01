@@ -58,7 +58,7 @@ import Image from 'react-bootstrap/Image'
     <Navbar.Brand href="/"><Image bg="light" background="white"  src='https://cdn.webshopapp.com/shops/215747/themes/141665/assets/logo.svg?20200327142814'  fluid />
     </Navbar.Brand>
     <Nav className="mr-auto">
-    <Nav.Link  href="/orders">Orders </Nav.Link>
+    <Nav.Link  href="/orders/">Orders </Nav.Link>
     <Nav.Link  href="/customers">Customers </Nav.Link>
       
     </Nav>

@@ -183,12 +183,12 @@ class HomeView extends React.Component {
 
     return (
 
-      <Router >
+      <Router basename="/" >
 
         <Navigation />
 
         <Route exact path="/" render={() =>
-          <div> Welcome Sir</div>
+          <div> Welcome SirOKO</div>
 
 
         } />

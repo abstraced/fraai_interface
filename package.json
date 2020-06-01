@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production parcel build src/index.html --public-url https://abstraced.github.io/fraai_interface ",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist/"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +15,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "firebase": "^7.14.0",
+    "gh-pages": "^2.2.0",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
@@ -28,6 +32,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "cssnano": "^4.1.10",
     "sass": "^1.26.3"
   }
 }
