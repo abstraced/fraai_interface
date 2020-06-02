@@ -62259,7 +62259,7 @@ var Navigation = /*#__PURE__*/function (_React$Component) {
       })), _react.default.createElement(_Nav.default, {
         className: "mr-auto"
       }, _react.default.createElement(_Nav.default.Link, {
-        href: "/orders"
+        href: "/orders/"
       }, "Orders "), _react.default.createElement(_Nav.default.Link, {
         href: "/customers"
       }, "Customers ")), _react.default.createElement(_Button.default, {
@@ -62475,12 +62475,12 @@ var HomeView = /*#__PURE__*/function (_React$Component) {
       var state = this.state;
       if (!state) return _react.default.createElement(_loadingView.default, null);
       return _react.default.createElement(_reactRouterDom.BrowserRouter, {
-        basename: "/fraai_interface"
+        basename: "/"
       }, _react.default.createElement(_navigation.default, null), _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
         path: "/",
         render: function render() {
-          return _react.default.createElement("div", null, " Welcome Sir");
+          return _react.default.createElement("div", null, " Welcome SirOKO");
         }
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/customers",
@@ -62745,7 +62745,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54532" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53124" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
