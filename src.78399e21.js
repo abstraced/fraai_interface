@@ -33722,7 +33722,10 @@ module.exports.default = axios;
 
 },{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"../node_modules/react-google-login/dist/google-login.js":[function(require,module,exports) {
+},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"../node_modules/use-state-with-callback/lib/index.js":[function(require,module,exports) {
+var define;
+!function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(require("react")):"function"==typeof define&&define.amd?define(["react"],e):"object"==typeof exports?exports["use-state-with-callback"]=e(require("react")):t["use-state-with-callback"]=e(t.react)}(window,function(t){return function(t){var e={};function r(n){if(e[n])return e[n].exports;var u=e[n]={i:n,l:!1,exports:{}};return t[n].call(u.exports,u,u.exports,r),u.l=!0,u.exports}return r.m=t,r.c=e,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(t,e){if(1&e&&(t=r(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var u in t)r.d(n,u,function(e){return t[e]}.bind(null,u));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="",r(r.s=1)}([function(e,r){e.exports=t},function(t,e,r){"use strict";r.r(e),r.d(e,"useStateWithCallbackInstant",function(){return o});var n=r(0);function u(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=[],n=!0,u=!1,o=void 0;try{for(var i,c=t[Symbol.iterator]();!(n=(i=c.next()).done)&&(r.push(i.value),!e||r.length!==e);n=!0);}catch(t){u=!0,o=t}finally{try{n||null==c.return||c.return()}finally{if(u)throw o}}return r}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}()}var o=function(t,e){var r=u(Object(n.useState)(t),2),o=r[0],i=r[1];return Object(n.useLayoutEffect)(function(){return e(o)},[o,e]),[o,i]};e.default=function(t,e){var r=u(Object(n.useState)(t),2),o=r[0],i=r[1];return Object(n.useEffect)(function(){return e(o)},[o,e]),[o,i]}}])});
+},{"react":"../node_modules/react/index.js"}],"../node_modules/react-google-login/dist/google-login.js":[function(require,module,exports) {
 var define;
 !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("react")):"function"==typeof define&&define.amd?define(["react"],t):"object"==typeof exports?exports.GoogleLogin=t(require("react")):e.GoogleLogin=t(e.react)}("undefined"!=typeof self?self:this,(function(e){return o={},t.m=n=[function(t){t.exports=e},function(e,t,n){e.exports=n(2)()},function(e,t,n){"use strict";function o(){}function r(){}var i=n(3);r.resetWarningCache=o,e.exports=function(){function e(e,t,n,o,r,a){if(a!==i){var c=Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw c.name="Invariant Violation",c}}function t(){return e}var n={array:e.isRequired=e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:r,resetWarningCache:o};return n.PropTypes=n}},function(e){"use strict";e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"},function(e,t,n){"use strict";function o(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e)){var n=[],o=!0,r=!1,i=void 0;try{for(var a,c=e[Symbol.iterator]();!(o=(a=c.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{o||null==c.return||c.return()}finally{if(r)throw i}}return n}}(e,t)||function(e,t){if(e){if("string"==typeof e)return r(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(n):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?r(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function r(e,t){null!=t&&t<=e.length||(t=e.length);for(var n=0,o=Array(t);n<t;n++)o[n]=e[n];return o}function i(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e)){var n=[],o=!0,r=!1,i=void 0;try{for(var a,c=e[Symbol.iterator]();!(o=(a=c.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{o||null==c.return||c.return()}finally{if(r)throw i}}return n}}(e,t)||function(e,t){if(e){if("string"==typeof e)return a(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(n):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?a(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function a(e,t){null!=t&&t<=e.length||(t=e.length);for(var n=0,o=Array(t);n<t;n++)o[n]=e[n];return o}function c(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e)){var n=[],o=!0,r=!1,i=void 0;try{for(var a,c=e[Symbol.iterator]();!(o=(a=c.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{o||null==c.return||c.return()}finally{if(r)throw i}}return n}}(e,t)||function(e,t){if(e){if("string"==typeof e)return u(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(n):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?u(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function u(e,t){null!=t&&t<=e.length||(t=e.length);for(var n=0,o=Array(t);n<t;n++)o[n]=e[n];return o}function s(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e)){var n=[],o=!0,r=!1,i=void 0;try{for(var a,c=e[Symbol.iterator]();!(o=(a=c.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{o||null==c.return||c.return()}finally{if(r)throw i}}return n}}(e,t)||function(e,t){if(e){if("string"==typeof e)return l(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(n):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?l(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function l(e,t){null!=t&&t<=e.length||(t=e.length);for(var n=0,o=Array(t);n<t;n++)o[n]=e[n];return o}function f(e,t,n,o,r){var i=e.getElementsByTagName(t)[0],a=i,c=i;(c=e.createElement(t)).id=n,c.src=o,a&&a.parentNode?a.parentNode.insertBefore(c,a):e.head.appendChild(c),c.onload=r}function d(e,t){var n=e.getElementById(t);n&&n.parentNode.removeChild(n)}function p(e){return b.a.createElement("span",{style:{paddingRight:10,fontWeight:500,paddingLeft:e.icon?0:10,paddingTop:10,paddingBottom:10}},e.children)}function g(e){return b.a.createElement("div",{style:{marginRight:10,background:e.active?"#eee":"#fff",padding:10,borderRadius:2}},b.a.createElement("svg",{width:"18",height:"18",xmlns:"http://www.w3.org/2000/svg"},b.a.createElement("g",{fill:"#000",fillRule:"evenodd"},b.a.createElement("path",{d:"M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z",fill:"#EA4335"}),b.a.createElement("path",{d:"M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z",fill:"#4285F4"}),b.a.createElement("path",{d:"M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z",fill:"#FBBC05"}),b.a.createElement("path",{d:"M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z",fill:"#34A853"}),b.a.createElement("path",{fill:"none",d:"M0 0h18v18H0z"}))))}function y(e){var t=i(Object(m.useState)(!1),2),n=t[0],o=t[1],r=i(Object(m.useState)(!1),2),a=r[0],c=r[1],u=e.tag,s=e.type,l=e.className,f=e.disabledStyle,d=e.buttonText,y=e.children,v=e.render,S=e.theme,j=e.icon,O=e.disabled,x=h({onSuccess:e.onSuccess,onAutoLoadFinished:e.onAutoLoadFinished,onRequest:e.onRequest,onFailure:e.onFailure,clientId:e.clientId,cookiePolicy:e.cookiePolicy,loginHint:e.loginHint,hostedDomain:e.hostedDomain,autoLoad:e.autoLoad,isSignedIn:e.isSignedIn,fetchBasicProfile:e.fetchBasicProfile,redirectUri:e.redirectUri,discoveryDocs:e.discoveryDocs,uxMode:e.uxMode,scope:e.scope,accessType:e.accessType,responseType:e.responseType,jsSrc:e.jsSrc,prompt:e.prompt}),I=x.signIn,w=O||!x.loaded;if(v)return v({onClick:I,disabled:w});var k={backgroundColor:"dark"===S?"rgb(66, 133, 244)":"#fff",display:"inline-flex",alignItems:"center",color:"dark"===S?"#fff":"rgba(0, 0, 0, .54)",boxShadow:"0 2px 2px 0 rgba(0, 0, 0, .24), 0 0 1px 0 rgba(0, 0, 0, .24)",padding:0,borderRadius:2,border:"1px solid transparent",fontSize:14,fontWeight:"500",fontFamily:"Roboto, sans-serif"},A={cursor:"pointer",backgroundColor:"dark"===S?"#3367D6":"#eee",color:"dark"===S?"#fff":"rgba(0, 0, 0, .54)",opacity:1},_=w?Object.assign({},k,f):a?Object.assign({},k,A):n?Object.assign({},k,{cursor:"pointer",opacity:.9}):k;return b.a.createElement(u,{onMouseEnter:function(){return o(!0)},onMouseLeave:function(){o(!1),c(!1)},onMouseDown:function(){return c(!0)},onMouseUp:function(){return c(!1)},onClick:I,style:_,type:s,disabled:w,className:l},[j&&b.a.createElement(g,{key:1,active:a}),b.a.createElement(p,{icon:j,key:2},y||d)])}n.r(t),n.d(t,"default",(function(){return S})),n.d(t,"GoogleLogin",(function(){return S})),n.d(t,"GoogleLogout",(function(){return O})),n.d(t,"useGoogleLogin",(function(){return h})),n.d(t,"useGoogleLogout",(function(){return j}));var m=n(0),b=n.n(m),h=(n(1),function(e){function t(e){var t=e.getBasicProfile(),n=e.getAuthResponse();e.googleId=t.getId(),e.tokenObj=n,e.tokenId=n.id_token,e.accessToken=n.access_token,e.profileObj={googleId:t.getId(),imageUrl:t.getImageUrl(),email:t.getEmail(),name:t.getName(),givenName:t.getGivenName(),familyName:t.getFamilyName()},i(e)}function n(e){if(e&&e.preventDefault(),P){var n=window.gapi.auth2.getAuthInstance(),o={prompt:T};p(),"code"===A?n.grantOfflineAccess(o).then((function(e){return i(e)}),(function(e){return s(e)})):n.signIn(o).then((function(e){return t(e)}),(function(e){return s(e)}))}}var r=e.onSuccess,i=void 0===r?function(){}:r,a=e.onAutoLoadFinished,c=void 0===a?function(){}:a,u=e.onFailure,s=void 0===u?function(){}:u,l=e.onRequest,p=void 0===l?function(){}:l,g=e.clientId,y=e.cookiePolicy,b=e.loginHint,h=e.hostedDomain,v=e.autoLoad,S=e.isSignedIn,j=e.fetchBasicProfile,O=e.redirectUri,x=e.discoveryDocs,I=e.uxMode,w=e.scope,k=e.accessType,A=e.responseType,_=e.jsSrc,E=void 0===_?"https://apis.google.com/js/api.js":_,T=e.prompt,M=o(Object(m.useState)(!1),2),P=M[0],L=M[1];return Object(m.useEffect)((function(){var e=!1;return f(document,"script","google-login",E,(function(){var n={client_id:g,cookie_policy:y,login_hint:b,hosted_domain:h,fetch_basic_profile:j,discoveryDocs:x,ux_mode:I,redirect_uri:O,scope:w,access_type:k};"code"===A&&(n.access_type="offline"),window.gapi.load("auth2",(function(){var o=window.gapi.auth2.getAuthInstance();o?S&&o.isSignedIn.get()?(L(!0),c(!0),t(o.currentUser.get())):e||(L(!0),c(!1)):window.gapi.auth2.init(n).then((function(n){if(!e){L(!0);var o=S&&n.isSignedIn.get();c(o),o&&t(n.currentUser.get())}}),(function(e){L(!0),c(!1),s(e)}))}))})),function(){e=!0,d(document,"google-login")}}),[]),Object(m.useEffect)((function(){v&&n()}),[P]),{signIn:n,loaded:P}});function v(e){var t=s(Object(m.useState)(!1),2),n=t[0],o=t[1],r=s(Object(m.useState)(!1),2),i=r[0],a=r[1],c=e.tag,u=e.type,l=e.className,f=e.disabledStyle,d=e.buttonText,y=e.children,h=e.render,v=e.theme,S=e.icon,O=e.disabled,x=j({jsSrc:e.jsSrc,onFailure:e.onFailure,clientId:e.clientId,cookiePolicy:e.cookiePolicy,loginHint:e.loginHint,hostedDomain:e.hostedDomain,fetchBasicProfile:e.fetchBasicProfile,discoveryDocs:e.discoveryDocs,uxMode:e.uxMode,redirectUri:e.redirectUri,scope:e.scope,accessType:e.accessType,onLogoutSuccess:e.onLogoutSuccess}),I=x.signOut,w=O||!x.loaded;if(h)return h({onClick:I,disabled:w});var k={backgroundColor:"dark"===v?"rgb(66, 133, 244)":"#fff",display:"inline-flex",alignItems:"center",color:"dark"===v?"#fff":"rgba(0, 0, 0, .54)",boxShadow:"0 2px 2px 0 rgba(0, 0, 0, .24), 0 0 1px 0 rgba(0, 0, 0, .24)",padding:0,borderRadius:2,border:"1px solid transparent",fontSize:14,fontWeight:"500",fontFamily:"Roboto, sans-serif"},A={cursor:"pointer",backgroundColor:"dark"===v?"#3367D6":"#eee",color:"dark"===v?"#fff":"rgba(0, 0, 0, .54)",opacity:1},_=w?Object.assign({},k,f):i?Object.assign({},k,A):n?Object.assign({},k,{cursor:"pointer",opacity:.9}):k;return b.a.createElement(c,{onMouseEnter:function(){return o(!0)},onMouseLeave:function(){o(!1),a(!1)},onMouseDown:function(){return a(!0)},onMouseUp:function(){return a(!1)},onClick:I,style:_,type:u,disabled:w,className:l},[S&&b.a.createElement(g,{key:1,active:i}),b.a.createElement(p,{icon:S,key:2},y||d)])}y.defaultProps={type:"button",tag:"button",buttonText:"Sign in with Google",scope:"profile email",accessType:"online",prompt:"",cookiePolicy:"single_host_origin",fetchBasicProfile:!0,isSignedIn:!1,uxMode:"popup",disabledStyle:{opacity:.6},icon:!0,theme:"light",onRequest:function(){}};var S=y,j=function(e){var t=e.jsSrc,n=void 0===t?"https://apis.google.com/js/api.js":t,o=e.onFailure,r=e.clientId,i=e.cookiePolicy,a=e.loginHint,u=e.hostedDomain,s=e.fetchBasicProfile,l=e.discoveryDocs,p=e.uxMode,g=e.redirectUri,y=e.scope,b=e.accessType,h=e.onLogoutSuccess,v=c(Object(m.useState)(!1),2),S=v[0],j=v[1];return Object(m.useEffect)((function(){return f(document,"script","google-login",n,(function(){var e={client_id:r,cookie_policy:i,login_hint:a,hosted_domain:u,fetch_basic_profile:s,discoveryDocs:l,ux_mode:p,redirect_uri:g,scope:y,access_type:b};window.gapi.load("auth2",(function(){window.gapi.auth2.getAuthInstance()?j(!0):window.gapi.auth2.init(e).then((function(){return j(!0)}),(function(e){return o(e)}))}))})),function(){d(document,"google-login")}}),[]),{signOut:function(){if(window.gapi){var e=window.gapi.auth2.getAuthInstance();null!=e&&e.signOut().then(e.disconnect().then(h))}},loaded:S}};v.defaultProps={type:"button",tag:"button",buttonText:"Logout of Google",disabledStyle:{opacity:.6},icon:!0,theme:"light",jsSrc:"https://apis.google.com/js/api.js"};var O=v}],t.c=o,t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:o})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,n){if(1&n&&(e=t(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(t.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var r in e)t.d(o,r,function(t){return e[t]}.bind(null,r));return o},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=4);function t(e){if(o[e])return o[e].exports;var r=o[e]={i:e,l:!1,exports:{}};return n[e].call(r.exports,r,r.exports,t),r.l=!0,r.exports}var n,o}));
 },{"react":"../node_modules/react/index.js"}],"components/login-view/login-view.jsx":[function(require,module,exports) {
@@ -33761,9 +33764,9 @@ function LoginView(props) {
     scope: "https://www.googleapis.com/auth/drive",
     buttonText: "Login",
     onSuccess: function onSuccess(res) {
-      props.setUserInfos(res);
-    },
-    isSignedIn: true,
+      props.onLoggingIn(res);
+    } // isSignedIn={true}
+    ,
     onFailure: responseGoogle,
     cookiePolicy: 'single_host_origin'
   });
@@ -62184,11 +62187,13 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactGoogleLogin = require("react-google-login");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _reactRouterDom = require("react-router-dom");
+
 var _reactRedux = require("react-redux");
 
 var _actions = require("../../actions/actions");
-
-var _reactRouterDom = require("react-router-dom");
 
 var _Nav = _interopRequireDefault(require("react-bootstrap/Nav"));
 
@@ -62226,7 +62231,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-// import  {UpdateOrderView}  from './update-order-view/update-order-view';
 var Navigation = /*#__PURE__*/function (_React$Component) {
   _inherits(Navigation, _React$Component);
 
@@ -62249,26 +62253,35 @@ var Navigation = /*#__PURE__*/function (_React$Component) {
 
       return _react.default.createElement("div", {
         className: "navigation"
-      }, _react.default.createElement(_Navbar.default, null, _react.default.createElement(_Navbar.default.Brand, {
-        href: "/"
-      }, _react.default.createElement(_Image.default, {
+      }, _react.default.createElement(_Navbar.default, null, _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/"
+      }, " ", _react.default.createElement(_Navbar.default.Brand, null, _react.default.createElement(_Image.default, {
         bg: "light",
         background: "white",
         src: "https://cdn.webshopapp.com/shops/215747/themes/141665/assets/logo.svg?20200327142814",
         fluid: true
-      })), _react.default.createElement(_Nav.default, {
+      }))), this.props.isConnected ? _react.default.createElement(_Nav.default, {
         className: "mr-auto"
-      }, _react.default.createElement(_Nav.default.Link, {
-        href: "/orders/"
-      }, "Orders "), _react.default.createElement(_Nav.default.Link, {
-        href: "/customers"
-      }, "Customers ")), _react.default.createElement(_Button.default, {
+      }, _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/orders/"
+      }, "Orders "), _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/customers"
+      }, "Customers ")) : _react.default.createElement("div", null, " Connectez vous"), this.props.isConnected ? _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/"
+      }, _react.default.createElement(_Button.default, {
         onClick: function onClick() {
-          return _this2.props.setUserInfos({
-            name: 'tobi'
-          });
+          _this2.props.setUser(null);
+
+          localStorage.clear();
+          console.log('test');
         }
-      }, " Disconnect ")));
+      }, " Disconnect ")), ": ", _react.default.createElement("div", null, " "), _react.default.createElement(_reactGoogleLogin.GoogleLogout, {
+        clientId: "703753342682-pofbuml594pvb54ajushgu4ln52i7l31.apps.googleusercontent.com",
+        buttonText: "Logout",
+        onLogoutSuccess: function onLogoutSuccess() {
+          return _this2.props.setUser(null);
+        }
+      })) : _react.default.createElement("div", null)));
     }
   }]);
 
@@ -62280,7 +62293,10 @@ var _default = (0, _reactRedux.connect)(null, {
 })(Navigation);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-google-login":"../node_modules/react-google-login/dist/google-login.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap/Nav":"../node_modules/react-bootstrap/esm/Nav.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Navbar":"../node_modules/react-bootstrap/esm/Navbar.js","react-bootstrap/FormControl":"../node_modules/react-bootstrap/esm/FormControl.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Image":"../node_modules/react-bootstrap/esm/Image.js"}],"components/utilities.js":[function(require,module,exports) {
+Navigation.propTypes = {
+  isConnected: _propTypes.default.bool
+};
+},{"react":"../node_modules/react/index.js","react-google-login":"../node_modules/react-google-login/dist/google-login.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","react-bootstrap/Nav":"../node_modules/react-bootstrap/esm/Nav.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Navbar":"../node_modules/react-bootstrap/esm/Navbar.js","react-bootstrap/FormControl":"../node_modules/react-bootstrap/esm/FormControl.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Image":"../node_modules/react-bootstrap/esm/Image.js"}],"components/utilities.js":[function(require,module,exports) {
 //// Fetch utility
 var turn_rows_in_object = function turn_rows_in_object(rows) {
   var header = rows[0];
@@ -62596,11 +62612,27 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
+var _useStateWithCallback3 = _interopRequireDefault(require("use-state-with-callback"));
+
 var _loginView = _interopRequireDefault(require("../login-view/login-view"));
 
 var _homeView = _interopRequireDefault(require("../interface-view/home-view/home-view"));
 
+var _navigation = _interopRequireDefault(require("../nav-bar/navigation"));
+
+var _orderView = _interopRequireDefault(require("../interface-view/order-view/order-view"));
+
+var _customerView = _interopRequireDefault(require("../interface-view/customer-view/customer-view"));
+
+var _loadingView = _interopRequireDefault(require("../loading-view/loading-view"));
+
+var _reactRouterDom = require("react-router-dom");
+
 var _reactRedux = require("react-redux");
+
+var _actions = require("../../actions/actions");
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62608,29 +62640,204 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var utilities = require("../utilities");
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    user: state.userInfos
+    customers: state.customers,
+    orders: state.orders,
+    templates: state.templates
   };
 };
 
 function MainView(props) {
   var _this = this;
 
-  return _react.default.createElement("div", {
-    className: "app"
-  }, Object.keys(props.user).length < 2 ? _react.default.createElement(_loginView.default, null) : _react.default.createElement(_homeView.default, {
-    user: props.user,
-    disconnect: function disconnect() {
-      return _this.disconnect();
+  var _useStateWithCallback = (0, _useStateWithCallback3.default)(null, function (user) {
+    var LocalOrders = JSON.parse(localStorage.getItem("Orders"));
+
+    if (user !== null && LocalOrders === null) {
+      importOrders();
+      importCustomers();
+    } else if (LocalOrders !== null && props.orders === null) {
+      var Articles = JSON.parse(localStorage.getItem("Articles"));
+      var Customers = JSON.parse(localStorage.getItem("Customers"));
+      var Template_order = JSON.parse(localStorage.getItem("Template_order"));
+      var Template_customer = JSON.parse(localStorage.getItem("Template_customer"));
+      props.setCustomers(Customers);
+      props.setArticles(Articles);
+      props.setOrders(LocalOrders);
+      props.setTemplates({
+        Template_order: Template_order,
+        Template_customer: Template_customer
+      });
+      console.log("yoo");
+    } else {
+      console.log("ne fais rien");
+    }
+  }),
+      _useStateWithCallback2 = _slicedToArray(_useStateWithCallback, 2),
+      user = _useStateWithCallback2[0],
+      setUser = _useStateWithCallback2[1];
+
+  (0, _react.useEffect)(function () {
+    var LocalUser = JSON.parse(localStorage.getItem("user"));
+
+    if (LocalUser !== null) {
+      setUser(LocalUser);
+      console.log(LocalUser);
+    }
+  }, []);
+
+  var onLoggingIn = function onLoggingIn(user) {
+    setUser(user);
+    localStorage.setItem("user", JSON.stringify(user));
+  };
+
+  var importOrders = function importOrders() {
+    _axios.default.get("https://sheets.googleapis.com/v4/spreadsheets/1YaUmRgz_NZeFsNBD5oxd1r8Z-x1J86IqJB7l-lRJVaQ/values/API_DATA!c1:bZ500", {
+      headers: {
+        Authorization: "Bearer " + user.accessToken
+      }
+    }).then(function (response) {
+      // Assign the result to the state
+      var myOrderSorted = utilities.turn_rows_in_object(response.data.values);
+      var sortedBaz = groupBy("data_InvoiceNumber");
+      props.setArticles(myOrderSorted);
+      props.setOrders(sortedBaz(myOrderSorted));
+      props.setTemplates(_extends({
+        Template_order: myOrderSorted[0]
+      }, props.templates));
+      localStorage.setItem("Template_order", JSON.stringify(myOrderSorted[0]));
+      localStorage.setItem("Articles", JSON.stringify(myOrderSorted));
+      localStorage.setItem("Orders", JSON.stringify(sortedBaz(myOrderSorted)));
+    });
+  };
+
+  var importCustomers = function importCustomers() {
+    _axios.default.get("https://sheets.googleapis.com/v4/spreadsheets/1YaUmRgz_NZeFsNBD5oxd1r8Z-x1J86IqJB7l-lRJVaQ/values/Customer Database!A1:O1500", {
+      headers: {
+        Authorization: "Bearer " + user.accessToken
+      }
+    }).then(function (response) {
+      // Assign the result to the state
+      console.log("test");
+      var customers = utilities.turn_rows_in_object(response.data.values);
+      props.setTemplates(_extends({
+        Template_customer: customers[0]
+      }, props.templates));
+      localStorage.setItem("Template_customer", JSON.stringify(customers[0]));
+      var newArray = customers.filter(function (el) {
+        return el.isData == "yes" && el.ID != 0;
+      });
+      return newArray;
+    }).then(function (response) {
+      props.setCustomers(response);
+      localStorage.setItem("Customers", JSON.stringify(response));
+    }).catch(function (error) {
+      console.log(error);
+    });
+  };
+
+  return _react.default.createElement(_reactRouterDom.BrowserRouter, {
+    basename: "/"
+  }, _react.default.createElement(_navigation.default, {
+    isConnected: user ? true : false,
+    setUser: setUser
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/",
+    render: function render() {
+      if (!user) return _react.default.createElement(_loginView.default, {
+        onLoggingIn: onLoggingIn
+      });
+      return _react.default.createElement("div", null, " Home Page");
+    }
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/customers",
+    render: function render() {
+      return _react.default.createElement(_customerView.default, {
+        isStandalone: true
+      });
+    }
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/customer/:customerId",
+    render: function render(_ref) {
+      var match = _ref.match;
+      if (!_this.props.customers) return _react.default.createElement(_loadingView.default, null);
+      return _react.default.createElement(_customerView.default, {
+        isStandalone: true,
+        view: "selected",
+        customer: _this.props.customers.find(function (m) {
+          return m.ID === match.params.customerId;
+        })
+      });
+    }
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/orders",
+    render: function render() {
+      return _react.default.createElement(_orderView.default, {
+        isStandalone: true
+      });
+    }
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/orders/create",
+    render: function render() {
+      return _react.default.createElement(_orderView.default, {
+        isStandalone: true,
+        view: "create",
+        order: _this.props.templates.Template_order
+      });
+    }
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/order/:orderId",
+    render: function render(_ref2) {
+      var match = _ref2.match;
+      if (!_this.props.orders) return _react.default.createElement(_loadingView.default, null);
+      return _react.default.createElement(_orderView.default, {
+        isStandalone: true,
+        view: "selected",
+        order: _this.props.orders[Object.keys(_this.props.orders).find(function (m) {
+          return m === match.params.orderId;
+        })]
+      });
     }
   }));
 }
 
-var _default = (0, _reactRedux.connect)(mapStateToProps)(MainView);
+var _default = (0, _reactRedux.connect)(mapStateToProps, {
+  setCustomers: _actions.setCustomers,
+  setArticles: _actions.setArticles,
+  setOrders: _actions.setOrders,
+  setTemplates: _actions.setTemplates
+})(MainView); //// Fetch utility
+
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","../login-view/login-view":"components/login-view/login-view.jsx","../interface-view/home-view/home-view":"components/interface-view/home-view/home-view.jsx","react-redux":"../node_modules/react-redux/es/index.js"}],"index.jsx":[function(require,module,exports) {
+
+var groupBy = function groupBy(key) {
+  return function (array) {
+    return array.reduce(function (objectsByKeyValue, obj) {
+      var value = obj[key];
+      objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+      return objectsByKeyValue;
+    }, {});
+  };
+};
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","use-state-with-callback":"../node_modules/use-state-with-callback/lib/index.js","../login-view/login-view":"components/login-view/login-view.jsx","../interface-view/home-view/home-view":"components/interface-view/home-view/home-view.jsx","../nav-bar/navigation":"components/nav-bar/navigation.jsx","../interface-view/order-view/order-view":"components/interface-view/order-view/order-view.jsx","../interface-view/customer-view/customer-view":"components/interface-view/customer-view/customer-view.jsx","../loading-view/loading-view":"components/loading-view/loading-view.jsx","../utilities":"components/utilities.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js"}],"index.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -62745,7 +62952,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53124" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60427" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
