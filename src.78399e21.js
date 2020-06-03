@@ -59662,13 +59662,13 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRedux = require("react-redux");
-
 var _ordersList = require("./orders-list/orders-list");
 
 var _orderCreate = require("./order-create/order-create");
 
 var _orderSingle = _interopRequireDefault(require("./order-single/order-single"));
+
+var _reactRedux = require("react-redux");
 
 var _actions = require("../../../actions/actions");
 
@@ -59728,13 +59728,13 @@ function OrderView(props) {
       setView(props.view);
     }
 
-    if (props.order && !preventRerendering) {
+    if (props.order) {
+      var customerActive = props.customers.find(function (x) {
+        return x.ID === props.order[0].data_CustomerNumber;
+      });
       props.setSelectedOrder(props.order);
 
       if (customerActive) {
-        var customerActive = props.customers.find(function (x) {
-          return x.ID === props.order[0].data_CustomerNumber;
-        });
         props.setSelectedCustomer(customerActive);
       } else setIspreventRerendering(true);
     }
@@ -59773,11 +59773,8 @@ function OrderView(props) {
       create: true
     }));
   } else if (view === 'selected') if (props.selectedOrder) {
-    var customerActive = props.customers.find(function (x) {
-      return x.ID === props.order[0].data_CustomerNumber;
-    });
-    console.log('Huh?');
-    props.setSelectedCustomer(customerActive);
+    // var customerActive= props.customers.find( x=> x.ID===props.order[0].data_CustomerNumber);
+    // props.setSelectedCustomer(customerActive);
     return _react.default.createElement(_orderSingle.default, {
       changeView: changeView,
       template: props.articles[0],
@@ -59797,7 +59794,7 @@ var _default = (0, _reactRedux.connect)(mapStateToProps, {
 })(OrderView);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","./orders-list/orders-list":"components/interface-view/order-view/orders-list/orders-list.jsx","./order-create/order-create":"components/interface-view/order-view/order-create/order-create.jsx","./order-single/order-single":"components/interface-view/order-view/order-single/order-single.jsx","../../../actions/actions":"actions/actions.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js"}],"../node_modules/react-bootstrap/esm/NavbarContext.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./orders-list/orders-list":"components/interface-view/order-view/orders-list/orders-list.jsx","./order-create/order-create":"components/interface-view/order-view/order-create/order-create.jsx","./order-single/order-single":"components/interface-view/order-view/order-single/order-single.jsx","react-redux":"../node_modules/react-redux/es/index.js","../../../actions/actions":"actions/actions.js","react-bootstrap/Row":"../node_modules/react-bootstrap/esm/Row.js","react-bootstrap/Col":"../node_modules/react-bootstrap/esm/Col.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js"}],"../node_modules/react-bootstrap/esm/NavbarContext.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62663,27 +62660,26 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 function MainView(props) {
-  var _this = this;
-
   var _useStateWithCallback = (0, _useStateWithCallback3.default)(null, function (user) {
     var LocalOrders = JSON.parse(localStorage.getItem("Orders"));
 
-    if (user !== null && LocalOrders === null) {
-      importOrders();
-      importCustomers();
-    } else if (LocalOrders !== null && props.orders === null) {
-      var Articles = JSON.parse(localStorage.getItem("Articles"));
-      var Customers = JSON.parse(localStorage.getItem("Customers"));
-      var Template_order = JSON.parse(localStorage.getItem("Template_order"));
-      var Template_customer = JSON.parse(localStorage.getItem("Template_customer"));
-      props.setCustomers(Customers);
-      props.setArticles(Articles);
-      props.setOrders(LocalOrders);
-      props.setTemplates({
-        Template_order: Template_order,
-        Template_customer: Template_customer
-      });
-      console.log("yoo");
+    if (user !== null && props.orders.length < 1) {
+      if (!LocalOrders) {
+        importOrders();
+        importCustomers();
+      } else {
+        var Articles = JSON.parse(localStorage.getItem("Articles"));
+        var Customers = JSON.parse(localStorage.getItem("Customers"));
+        var Template_order = JSON.parse(localStorage.getItem("Template_order"));
+        var Template_customer = JSON.parse(localStorage.getItem("Template_customer"));
+        props.setCustomers(Customers);
+        props.setArticles(Articles);
+        props.setOrders(LocalOrders);
+        props.setTemplates({
+          Template_order: Template_order,
+          Template_customer: Template_customer
+        });
+      }
     } else {
       console.log("ne fais rien");
     }
@@ -62697,7 +62693,6 @@ function MainView(props) {
 
     if (LocalUser !== null) {
       setUser(LocalUser);
-      console.log(LocalUser);
     }
   }, []);
 
@@ -62752,7 +62747,7 @@ function MainView(props) {
   };
 
   return _react.default.createElement(_reactRouterDom.BrowserRouter, {
-    basename: "/"
+    basename: "/fraai_interface"
   }, _react.default.createElement(_navigation.default, {
     isConnected: user ? true : false,
     setUser: setUser
@@ -62776,11 +62771,11 @@ function MainView(props) {
     path: "/customer/:customerId",
     render: function render(_ref) {
       var match = _ref.match;
-      if (!_this.props.customers) return _react.default.createElement(_loadingView.default, null);
+      if (!props.customers) return _react.default.createElement(_loadingView.default, null);
       return _react.default.createElement(_customerView.default, {
         isStandalone: true,
         view: "selected",
-        customer: _this.props.customers.find(function (m) {
+        customer: props.customers.find(function (m) {
           return m.ID === match.params.customerId;
         })
       });
@@ -62799,18 +62794,18 @@ function MainView(props) {
       return _react.default.createElement(_orderView.default, {
         isStandalone: true,
         view: "create",
-        order: _this.props.templates.Template_order
+        order: props.templates.Template_order
       });
     }
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/order/:orderId",
     render: function render(_ref2) {
       var match = _ref2.match;
-      if (!_this.props.orders) return _react.default.createElement(_loadingView.default, null);
+      if (!props.orders) return _react.default.createElement(_loadingView.default, null);
       return _react.default.createElement(_orderView.default, {
         isStandalone: true,
         view: "selected",
-        order: _this.props.orders[Object.keys(_this.props.orders).find(function (m) {
+        order: props.orders[Object.keys(props.orders).find(function (m) {
           return m === match.params.orderId;
         })]
       });
@@ -62952,7 +62947,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60427" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61380" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
