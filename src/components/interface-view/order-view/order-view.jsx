@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 
 
 
-import { connect } from 'react-redux';
-
 
 import {OrderList} from './orders-list/orders-list';
 import {OrderCreate} from './order-create/order-create';
@@ -14,6 +12,10 @@ import {OrderCreate} from './order-create/order-create';
 import OrderSingle from './order-single/order-single';
 
 
+
+
+
+import { connect } from 'react-redux';
 import {setSelectedOrder } from '../../../actions/actions';
 import {setSelectedCustomer } from '../../../actions/actions';
 
@@ -61,10 +63,11 @@ const mapStateToProps = state => {
       setView (props.view);
 
     }
-    if (props.order && !preventRerendering) {
+    if (props.order ) {
+      var customerActive= props.customers.find( x=> x.ID===props.order[0].data_CustomerNumber);
      props.setSelectedOrder(props.order);
      if (customerActive){
-      var customerActive= props.customers.find( x=> x.ID===props.order[0].data_CustomerNumber);
+     
     
       props.setSelectedCustomer(customerActive);
     }
@@ -134,9 +137,8 @@ function changeView(display ) {
 
  else if (view ==='selected')
   if (props.selectedOrder) {
-    var customerActive= props.customers.find( x=> x.ID===props.order[0].data_CustomerNumber);
-    console.log( 'Huh?');
-    props.setSelectedCustomer(customerActive);
+    // var customerActive= props.customers.find( x=> x.ID===props.order[0].data_CustomerNumber);
+    // props.setSelectedCustomer(customerActive);
 
 
     return (

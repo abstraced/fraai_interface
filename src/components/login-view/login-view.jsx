@@ -34,9 +34,10 @@ function LoginView (props) {
         scope="https://www.googleapis.com/auth/drive"
         buttonText="Login"
         onSuccess={res => {
-           props.setUserInfos(res);
+          props.onLoggingIn(res);
+           
         }}
-        isSignedIn={true}
+        // isSignedIn={true}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
       />
