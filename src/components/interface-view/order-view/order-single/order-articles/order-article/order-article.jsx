@@ -28,25 +28,24 @@ export function OrderArticle(props) {
 
   var filter = {
     
-    data_TypeFurniture: ['Item Id: ','card-text '],
+    data_TypeFurniture: ['Type furniture: ','card-text '],
     data_ItemId: ['Item Id: ','card-title h5'],
-    data_OrderDescription: 'Description:    ',
-    data_OrderSize: 'Size:   ',
-    data_SpecialCode: ' Special code: ',
-    data_OrderColor: 'Order color: ',
-    data_OrderSize: 'Order size : ',
-    data_Amount: 'Price',
-    data_NoteLaura: ' Note Laura'
+    data_OrderDescription: ['Description:    ','card-text '],
+    data_OrderSize: ['Size:   ','card-text '],
+    data_SpecialCode: [' Special code: ','card-text '],
+    data_OrderColor: ['Order color: ','card-text '],
+    data_OrderSize:[ 'Order size : ','card-text '],
+    data_Amount: ['Price','card-text '],
+    data_NoteLaura: [' Note Laura:  ','card-text ']
 
 
 
   };
 
   function turnIntoComponent  (keyName)  {
-    console.log(keyName);
-    console.log(filter[keyName]);
     
     var TagName = filter[keyName][1];
+    
     return (
 
 
@@ -109,6 +108,7 @@ export function OrderArticle(props) {
         <button onClick={() => setUpdateArticle(false)}> Validate update   </button> :
         <button onClick={() => setUpdateArticle(true)}> Update article   </button>
       }
+      <button>  Delete Article</button>
 
     </Card>
     

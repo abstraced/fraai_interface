@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 import axios from "axios";
-import useStateWithCallback from "use-state-with-callback";
 
 /// IMPORT PAGE COMPONENTS
 import LoginView from "../login-view/login-view";
-import HomeView from "../interface-view/home-view/home-view";
 import Navigation from "../nav-bar/navigation";
 import OrderView from "../interface-view/order-view/order-view";
 import CustomerView from "../interface-view/customer-view/customer-view";
 import LoadingView from "../loading-view/loading-view";
 
+
+
 const utilities = require("../utilities");
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-// import { setCustomers, setArticles, setOrders, setTemplates } from '../../../actions/actions';
 
 /// REDUX
 
@@ -25,8 +23,13 @@ import {
   setArticles,
   setOrders,
   setTemplates,
+
 } from "../../actions/actions";
 
+
+
+
+///  GET STATE FROM REDUX AS PROPS
 const mapStateToProps = (state) => {
   return {
     customers: state.customers,
@@ -35,55 +38,97 @@ const mapStateToProps = (state) => {
   };
 };
 
-function MainView(props) {
-  const [user, setUser] = useStateWithCallback(null, (user) => {
-    let LocalOrders = JSON.parse(localStorage.getItem("Orders"));
-    
-    if (user !== null && props.orders.length<1 ) {
-      if (!LocalOrders) {
-        importOrders();
-        importCustomers();
 
-      }
-      else {
-        let Articles = JSON.parse(localStorage.getItem("Articles"));
-        let Customers = JSON.parse(localStorage.getItem("Customers"));
-        let Template_order = JSON.parse(localStorage.getItem("Template_order"));
-        let Template_customer = JSON.parse(
-          localStorage.getItem("Template_customer")
-        );
+
+
+
+function MainView(props) {
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [user, setUser] = useState();
+
   
-        props.setCustomers(Customers);
-        props.setArticles(Articles);
-        props.setOrders(LocalOrders);
-        props.setTemplates({ Template_order, Template_customer });
+  // useStateWithCallback(null, (user) => {
+  //   let LocalOrders = JSON.parse(localStorage.getItem("Orders"));
+    
+  //   if (user !== null && props.orders.length<1 ) {
+  //     if (!LocalOrders) {
+  //       importOrders();
+  //       importCustomers();
+
+  //     }
+  //     else {
+  //       let Articles = JSON.parse(localStorage.getItem("Articles"));
+  //       let Customers = JSON.parse(localStorage.getItem("Customers"));
+  //       let Template_order = JSON.parse(localStorage.getItem("Template_order"));
+  //       let Template_customer = JSON.parse(
+  //         localStorage.getItem("Template_customer")
+  //       );
+  
+  //       props.setCustomers(Customers);
+  //       props.setArticles(Articles);
+  //       props.setOrders(LocalOrders);
+  //       props.setTemplates({ Template_order, Template_customer });
   
         
 
 
-      }
+  //     }
      
-    } else {
-      console.log("ne fais rien");
-    }
-  });
+  //   } else {
+  //     console.log("ne fais rien");
+  //   }
+  // });
 
   useEffect(() => {
     let LocalUser = JSON.parse(localStorage.getItem("user"));
 
-    if (LocalUser !== null) {
-      setUser(LocalUser);
+    if (LocalUser) {
+      setIsUserLoggedIn(true);
+
+      let LocalOrders = JSON.parse(localStorage.getItem("Orders"));
+      if (!LocalOrders) {
+              importOrders(LocalUser);
+              importCustomers(LocalUser);
+      
+            }
+            else {
+              let Articles = JSON.parse(localStorage.getItem("Articles"));
+              let Customers = JSON.parse(localStorage.getItem("Customers"));
+              let Template_order = JSON.parse(localStorage.getItem("Template_order"));
+              let Template_customer = JSON.parse(
+                localStorage.getItem("Template_customer")
+              );
+        
+              props.setCustomers(Customers);
+              props.setArticles(Articles);
+              props.setOrders(LocalOrders);
+              props.setTemplates({ Template_order, Template_customer });
+
+
+
+    }
+
+  //// STATE DATA IS LOADED =   async
+
+  }
+
+
+
+
+    
 
       
-    }
+    
   }, []);
 
   const onLoggingIn = (user) => {
-    setUser(user);
+    setIsUserLoggedIn(true);
     localStorage.setItem("user", JSON.stringify(user));
+    importOrders(user);
+    importCustomers(user);
   };
 
-  const importOrders = () => {
+  const importOrders = (user) => {
     axios
       .get(
         "https://sheets.googleapis.com/v4/spreadsheets/1YaUmRgz_NZeFsNBD5oxd1r8Z-x1J86IqJB7l-lRJVaQ/values/API_DATA!c1:bZ500",
@@ -119,7 +164,7 @@ function MainView(props) {
       });
   };
 
-  const importCustomers = () => {
+  const importCustomers = (user) => {
     axios
       .get(
         "https://sheets.googleapis.com/v4/spreadsheets/1YaUmRgz_NZeFsNBD5oxd1r8Z-x1J86IqJB7l-lRJVaQ/values/Customer Database!A1:O1500",
@@ -157,11 +202,11 @@ function MainView(props) {
 
   return (
     <Router basename="/fraai_interface">
-      <Navigation isConnected={user ? true : false} setUser={setUser} />
+      <Navigation isConnected={isUserLoggedIn ? true : false} onLogOut={setIsUserLoggedIn} />
 
       <Route exact   path="/"
         render={() => {
-          if (!user) return <LoginView onLoggingIn={onLoggingIn} />;
+          if (!isUserLoggedIn) return <LoginView onLoggingIn={onLoggingIn} />;
           return <div> Home Page</div>;
         }}
       />
@@ -190,10 +235,12 @@ function MainView(props) {
       <Route
         exact
         path="/orders"
-        render={() => <OrderView isStandalone={true} />}
+        render={() => <OrderView 
+         
+        isStandalone={true} />}
       />
 
-      <Route
+      {/* <Route
         path="/orders/create"
         render={() => (
           <OrderView
@@ -202,7 +249,7 @@ function MainView(props) {
             order={props.templates.Template_order}
           />
         )}
-      />
+      /> */}
 
       <Route
         path="/order/:orderId"
@@ -210,6 +257,7 @@ function MainView(props) {
           if (!props.orders) return <LoadingView />;
           return (
             <OrderView
+              user={user}
               isStandalone={true}
               view="selected"
               order={

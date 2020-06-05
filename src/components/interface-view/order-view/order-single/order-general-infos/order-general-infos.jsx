@@ -25,7 +25,7 @@ export function OrderGeneralInfos (props) {
     data_DeliveryAddress:'Delivery address:  '   ,
     data_InvoiceAddress: ' Invoice address:    ',
     data_OrderDate:'Order date:  ',
-    data_CustomerNumber: 'Customer number:',        
+    // data_CustomerNumber: 'Customer number:',        
     data_DueDateFinal: 'Due date final:    ',
     data_InvoiceNumber : 'Invoice number:   ', 
     data_PaymentMethod : 'Payment method: ', 

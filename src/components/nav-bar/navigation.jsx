@@ -70,8 +70,9 @@ import Image from 'react-bootstrap/Image'
     <div>
       <NavLink to="/">
      <Button
-      onClick={() => {this.props.setUser(null);
+      onClick={() => {
       localStorage.clear();
+      this.props.onLogOut(false);
       console.log('test')}}> Disconnect </Button></NavLink>: <div> </div>
     <GoogleLogout
       clientId="703753342682-pofbuml594pvb54ajushgu4ln52i7l31.apps.googleusercontent.com"

@@ -62,28 +62,47 @@ function OrderSingle(props) {
 
 
 
-
-
   const [updateOrder, setUpdateOrder] = useState(false);
   
-  const [itemID, setItemID] = useState(0);
-
 
   useEffect(() => {
 
 
-  // GET THE LAST ID  
-  var arrayOfId = [];
   
-  Object.keys(props.orders).map(x => {for (var item in props.orders[x]){  
-  if (parseInt(props.orders[x][item].data_ItemId )) { arrayOfId.push(parseInt(props.orders[x][item].data_ItemId));}
-  }});
   
-  var theHighest = Math.max(...arrayOfId); 
+    
 
-  setItemID(theHighest+1);
+    
+   // createdArticle.ID= newId;
 
-  }, []);
+
+  //  var assignGeneralInfos= ['data_DeliveryAddress',
+  //  'data_CustomerNumber',
+  //   'data_OrderDate',        
+  //   'data_DueDateFinal',
+  //   'data_InvoiceNumber', 
+  //   'data_PaymentMethod' , 
+  //   'data_Platform' , 
+  //   'data_VAT'];
+
+  //   for (var item in assignGeneralInfos) {
+  //   createdArticle[assignGeneralInfos[item]] = props.selectedOrder[0][assignGeneralInfos[item]];
+   
+  //   };
+
+  //   createdArticle.data_ItemId=255;
+   
+  //  //  createdArticle.data_ItemId = nouvelle valeurs
+  
+  //  // createdArticle.data_PaymentMethod = props.selectedOrder[0].data_PaymentMethod;     
+   
+
+  //  props.setSelectedOrder(createdArticle);
+
+
+  //   console.log('momo gigolo');
+  
+  }, [props]);
 
 
 
@@ -95,6 +114,7 @@ function OrderSingle(props) {
 
 
   const saveupdatedOrder = () => {
+    let user = JSON.parse(localStorage.getItem("user"));
 
     // LIST OF THE PARAMETER THAT ARE UPDATED
     var filter = {
@@ -183,7 +203,7 @@ function OrderSingle(props) {
 
     axios.post(url, resource, {
       headers: {
-        Authorization: 'Bearer ' + props.user.accessToken
+        Authorization: 'Bearer ' + user.accessToken
       }
     })
       .then(function (response) {
@@ -191,7 +211,19 @@ function OrderSingle(props) {
       })
       .then(() => {
         var newArray = props.orders;
-        newArray[props.selectedOrder[0].data_InvoiceNumber] = props.selectedOrder;
+     
+
+    /// modify the customer number depending ont he view
+        var updateSelectedOrder = props.selectedOrder;
+        for (const  x in updateSelectedOrder) {
+          updateSelectedOrder[x].data_CustomerNumber= props.selectedCustomer.ID;
+
+          
+        }
+        
+
+
+        newArray[props.selectedOrder[0].data_InvoiceNumber] = updateSelectedOrder;
 
         props.setOrders(newArray);
         localStorage.setItem("Orders", JSON.stringify(newArray));
@@ -209,7 +241,7 @@ function OrderSingle(props) {
 
   const addArticle = (e) => {
     e.preventDefault();
-    setItemID(itemID+1);
+    
     
 
      var createdArticle = _.mapValues(props.template, () => '');
@@ -227,10 +259,10 @@ function OrderSingle(props) {
 
      for (var item in assignGeneralInfos) {
      createdArticle[assignGeneralInfos[item]] = props.selectedOrder[0][assignGeneralInfos[item]];
-     console.log(item);
+    
      };
 
-     createdArticle.data_ItemId=itemID;
+     createdArticle.data_ItemId=props.getId();
     
     //  createdArticle.data_ItemId = nouvelle valeurs
    
@@ -248,7 +280,7 @@ function OrderSingle(props) {
   // var customerActive= props.customers.find( x=> x.ID===props.selectedOrder[0].data_CustomerNumber);
 
 
-
+console.log(props.selectedOrder.length);
 // WAIT FOR THE LOADING OF THE PROPS
   if (props.selectedOrder.length > 0) {
 
@@ -259,7 +291,7 @@ function OrderSingle(props) {
        <Row>
          <Col></Col>
          <Col>
-        <NavLink to={`/orders`} > <Button >   Back to list </Button></NavLink>
+        <NavLink to={`/orders`} > <Button onClick={()=> props.changeView('list')} >   Back to list </Button></NavLink>
         <Button variant="danger" onClick={saveupdatedOrder}> Save changes</Button>
         <Button onClick={addArticle} > Add an article</Button>
         </Col>
